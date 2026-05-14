@@ -83,7 +83,7 @@
         <h2>HYDRA BALM</h2>
         <h3>R$180</h3>
 
-        <button onclick="mostrarDetalhes()">Ver detalhes</button>
+       <button onclick="mostrarDetalhes2()">Ver detalhes</button>
 
         <div class="detalhes" id="detalhes">
             <p><strong>Descrição:</strong> Hydra Balm é um bálsamo hidratante desenvolvido para nutrir profundamente e manter a pele protegida ao longo do dia. Sua fórmula rica e confortável ajuda a restaurar a hidratação natural, suavizar o ressecamento e deixar a pele mais macia, saudável e luminosa. Ideal para quem busca cuidado intenso com toque leve e sensação de conforto imediato.</p>
@@ -99,15 +99,25 @@
     </div>
 
     <script>
-        function mostrarDetalhes() {
-            var detalhes = document.getElementById("detalhes");
+     function mostrarDetalhes() {
+    var detalhes = document.getElementById("detalhes");
 
-            if (detalhes.style.display === "block") {
-                detalhes.style.display = "none";
-            } else {
-                detalhes.style.display = "block";
-            }
-        }
+    if (detalhes.style.display === "block") {
+        detalhes.style.display = "none";
+    } else {
+        detalhes.style.display = "block";
+    }
+}
+
+function mostrarDetalhes2() {
+    var detalhes = document.getElementById("detalhes2");
+
+    if (detalhes.style.display === "block") {
+        detalhes.style.display = "none";
+    } else {
+        detalhes.style.display = "block";
+    }
+}
     </script>
 
 </body>

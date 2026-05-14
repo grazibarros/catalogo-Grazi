@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Catálogo Grazi</title>
+    <title>Atomy Catálogo</title>
     <style>
         body {
             font-family: Arial;
             text-align: center;
-            background: #f8f8f8;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background: #000;
+            color: white;
+            padding: 20px;
         }
 
         .produto {
             background: white;
-            width: 300px;
-            margin: 20px auto;
+            width: 350px;
+            margin: 30px auto;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
         }
 
         img {
@@ -23,31 +32,49 @@
         }
 
         button {
-            background: pink;
+            background: #d89ca4;
+            color: white;
             border: none;
-            padding: 10px;
+            padding: 12px;
             cursor: pointer;
             border-radius: 8px;
+            margin-top: 10px;
         }
 
         .detalhes {
             display: none;
-            margin-top: 10px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
         }
     </style>
 </head>
 <body>
 
-    <h1>Catálogo Grazi</h1>
+    <h1>Catálogo Atomy</h1>
 
     <div class="produto">
-        <img src="https://via.placeholder.com/300" alt="Produto">
-        <h2>Produto 1</h2>
+        <img src="https://image.atomy.com/KR/goods/001507/1d87be7f-b337-413b-9365-acd231fdb01b.jpg" alt="Reset Balm">
+
+        <h2>RESET BALM</h2>
+        <h3>R$180</h3>
+
         <button onclick="mostrarDetalhes()">Ver detalhes</button>
 
         <div class="detalhes" id="detalhes">
-            <p><strong>Ingredientes:</strong> exemplo ingrediente 1, ingrediente 2</p>
-            <p><strong>Descrição:</strong> descrição do produto</p>
+            <p><strong>Descrição:</strong> Reset Balm é um bálsamo multifuncional desenvolvido para restaurar, hidratar e acalmar a pele. Com textura suave e de rápida absorção, ele ajuda a reparar áreas ressecadas, aliviar irritações e devolver conforto imediato. Ideal para lábios, mãos, cutículas e regiões que precisam de cuidado extra no dia a dia.</p>
+
+            <p><strong>Ingredientes:</strong> Triisoestearato de poligliceril-2, óleo de semente de girassol, óleo de semente de macadâmia, manteiga de karité, óleo de rícino, niacinamida, pantenol, Ceramida NP, glicerina, óleo de semente de moringa e outros ingredientes ativos.</p>
+
+            <button>
+                <a href="https://wa.me/5511972258721" target="_blank">
+                    Comprar no WhatsApp
+                </a>
+            </button>
         </div>
     </div>
 

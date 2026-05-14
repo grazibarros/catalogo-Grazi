@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Catálogo Grazi</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f8f8f8;
+        }
 
+        .produto {
+            background: white;
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        button {
+            background: pink;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .detalhes {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Catálogo Grazi</h1>
+
+    <div class="produto">
+        <img src="https://via.placeholder.com/300" alt="Produto">
+        <h2>Produto 1</h2>
+        <button onclick="mostrarDetalhes()">Ver detalhes</button>
+
+        <div class="detalhes" id="detalhes">
+            <p><strong>Ingredientes:</strong> exemplo ingrediente 1, ingrediente 2</p>
+            <p><strong>Descrição:</strong> descrição do produto</p>
+        </div>
+    </div>
+
+    <script>
+        function mostrarDetalhes() {
+            var detalhes = document.getElementById("detalhes");
+
+            if (detalhes.style.display === "block") {
+                detalhes.style.display = "none";
+            } else {
+                detalhes.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>

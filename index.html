@@ -1,279 +1,1099 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>Atomy Catálogo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catálogo Atomy com produtos de skincare e proteção solar disponíveis para compra pelo WhatsApp.">
+    <title>Catálogo Atomy | Grazi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --dark: #262626;
+            --muted: #525252;
+            --navy: #143D4B;
+            --blue: #94CCDF;
+            --white: #FFFFFF;
+            --soft: #F5FAFC;
+            --line: rgba(20, 61, 75, 0.14);
+            --shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+            --max-width: 1180px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial;
-            text-align: center;
-            background: #f5f5f5;
             margin: 0;
-            padding: 0;
+            font-family: "Manrope", Arial, sans-serif;
+            color: var(--dark);
+            background: var(--white);
+            line-height: 1.6;
         }
-
-        h1 {
-    background: #1E5AA8;
-            color: white;
-            padding: 20px;
-        }
-
-      .produto {
-    background: white;
-    width: 220px;
-    margin: 15px;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-    display: inline-block;
-    vertical-align: top;
-}
 
         img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-      button {
-    background: #1E5AA8;
-            color: white;
-            border: none;
-            padding: 12px;
-            cursor: pointer;
-            border-radius: 8px;
-            margin-top: 10px;
-        }
-
-        .detalhes {
-            display: none;
-            margin-top: 20px;
-            text-align: left;
+            display: block;
+            max-width: 100%;
         }
 
         a {
+            color: inherit;
             text-decoration: none;
-            color: white;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        .container {
+            width: min(var(--max-width), calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 56px 0;
+        }
+
+        .section-header {
+            max-width: 720px;
+            margin-bottom: 28px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 0 8px;
+            color: var(--navy);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 26px;
+            height: 2px;
+            background: var(--blue);
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin: 0;
+            font-family: "Playfair Display", Georgia, serif;
+            line-height: 1.12;
+            color: var(--dark);
+        }
+
+        h1 {
+            max-width: 620px;
+            font-size: clamp(38px, 5vw, 48px);
+        }
+
+        h2 {
+            font-size: clamp(30px, 4vw, 36px);
+        }
+
+        h3 {
+            font-size: 28px;
+        }
+
+        p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 11px 18px;
+            border: 0;
+            border-radius: var(--radius);
+            background: var(--blue);
+            color: var(--white);
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+        }
+
+        .btn:hover,
+        .btn:focus-visible {
+            background: #83bfd2;
+            box-shadow: 0 8px 18px rgba(20, 61, 75, 0.18);
+            transform: translateY(-1px);
+            outline: none;
+        }
+
+        .btn-dark {
+            background: var(--navy);
+        }
+
+        .btn-dark:hover,
+        .btn-dark:focus-visible {
+            background: #0f303b;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.94);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 76px;
+            gap: 20px;
+        }
+
+        .logo {
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .nav a {
+            transition: color 180ms ease;
+        }
+
+        .nav a:hover,
+        .nav a:focus-visible {
+            color: var(--navy);
+            outline: none;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 64px 0 52px;
+            background: linear-gradient(90deg, var(--white) 0%, var(--soft) 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+            align-items: center;
+            gap: 44px;
+        }
+
+        .hero-copy p {
+            max-width: 590px;
+            margin-top: 18px;
+            font-size: 16px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            margin-top: 26px;
+        }
+
+        .hero-note {
+            color: var(--navy);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .hero-media {
+            position: relative;
+            min-height: 420px;
+        }
+
+        .hero-card {
+            position: absolute;
+            inset: 16px 0 0 42px;
+            overflow: hidden;
+            border-radius: 12px;
+            background: var(--white);
+            box-shadow: 0 20px 44px rgba(20, 61, 75, 0.18);
+        }
+
+        .hero-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .floating-product {
+            position: absolute;
+            left: 0;
+            bottom: 8px;
+            width: min(220px, 44vw);
+            padding: 14px;
+            border-radius: 12px;
+            background: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .floating-product img {
+            aspect-ratio: 1;
+            object-fit: contain;
+            border-radius: var(--radius);
+            background: var(--soft);
+        }
+
+        .floating-product strong {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .decor {
+            position: absolute;
+            color: var(--blue);
+            font-weight: 700;
+            pointer-events: none;
+        }
+
+        .decor.plus-one {
+            top: 88px;
+            right: 9%;
+            font-size: 34px;
+        }
+
+        .decor.plus-two {
+            left: 5%;
+            bottom: 34px;
+            font-size: 26px;
+        }
+
+        .decor.dot {
+            right: 3%;
+            bottom: 88px;
+            width: 14px;
+            height: 14px;
+            border-radius: 999px;
+            background: var(--blue);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .product-image {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: contain;
+            padding: 18px;
+            background: var(--soft);
+        }
+
+        .product-body {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            gap: 12px;
+            padding: 20px;
+        }
+
+        .product-title-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        .product-title-row h3 {
+            font-size: 22px;
+        }
+
+        .price {
+            flex: 0 0 auto;
+            color: var(--navy);
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .product-summary {
+            display: -webkit-box;
+            min-height: 76px;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+        }
+
+        .product-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .details-panel {
+            display: none;
+            margin-top: 4px;
+            padding-top: 14px;
+            border-top: 1px solid var(--line);
+        }
+
+        .details-panel.is-open {
+            display: block;
+        }
+
+        .details-panel p + p {
+            margin-top: 12px;
+        }
+
+        .details-panel strong {
+            color: var(--dark);
+        }
+
+        .stats {
+            background: var(--blue);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            min-height: 145px;
+            padding: 26px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .stat-card h3 {
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .difference {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .difference-grid {
+            display: grid;
+            grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.1fr);
+            align-items: center;
+            gap: 42px;
+        }
+
+        .difference-media {
+            overflow: hidden;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .difference-media img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: contain;
+            padding: 22px;
+        }
+
+        .difference h2,
+        .difference p,
+        .difference .eyebrow {
+            color: var(--white);
+        }
+
+        .difference p {
+            opacity: 0.88;
+        }
+
+        .difference-list {
+            display: grid;
+            gap: 14px;
+            margin: 24px 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .difference-list li {
+            padding-left: 28px;
+            position: relative;
+        }
+
+        .difference-list li::before {
+            content: "+";
+            position: absolute;
+            left: 0;
+            color: var(--blue);
+            font-weight: 800;
+        }
+
+        .faq-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .faq-item {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 18px 20px;
+            border: 0;
+            background: transparent;
+            color: var(--dark);
+            font-weight: 800;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .faq-question span:last-child {
+            flex: 0 0 auto;
+            color: var(--navy);
+            font-size: 22px;
+            line-height: 1;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 20px 18px;
+        }
+
+        .faq-item.is-open .faq-answer {
+            display: block;
+        }
+
+        .testimonials {
+            background: var(--soft);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .testimonial-card {
+            padding: 22px;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 999px;
+            background: var(--blue);
+            color: var(--navy);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+        }
+
+        .stars {
+            color: #D89D27;
+            font-size: 15px;
+            letter-spacing: 0;
+        }
+
+        .newsletter {
+            background: var(--blue);
+        }
+
+        .newsletter-inner {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 26px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .newsletter-form input {
+            width: min(320px, 48vw);
+            min-height: 44px;
+            border: 1px solid rgba(20, 61, 75, 0.2);
+            border-radius: var(--radius);
+            padding: 10px 12px;
+            color: var(--dark);
+        }
+
+        .site-footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 42px 0 24px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 1fr 0.8fr;
+            gap: 28px;
+        }
+
+        .site-footer h3,
+        .site-footer h4,
+        .site-footer p,
+        .site-footer a {
+            color: var(--white);
+        }
+
+        .site-footer h3 {
+            font-size: 28px;
+        }
+
+        .site-footer h4 {
+            margin: 0 0 12px;
+            font-size: 16px;
+        }
+
+        .footer-links {
+            display: grid;
+            gap: 8px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-links a {
+            width: 38px;
+            height: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.14);
+            font-weight: 800;
+        }
+
+        .footer-bottom {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
+            font-size: 14px;
+            opacity: 0.82;
+        }
+
+        @media (max-width: 960px) {
+            .hero-grid,
+            .difference-grid,
+            .newsletter-inner,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid,
+            .stats-grid,
+            .testimonial-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .newsletter-form {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .section {
+                padding: 42px 0;
+            }
+
+            .header-inner {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 16px 0;
+            }
+
+            .nav {
+                width: 100%;
+                gap: 12px;
+                overflow-x: auto;
+                padding-bottom: 4px;
+                font-size: 14px;
+            }
+
+            .hero {
+                padding-top: 40px;
+            }
+
+            .hero-grid,
+            .products-grid,
+            .stats-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-media {
+                min-height: 360px;
+            }
+
+            .hero-card {
+                inset: 0 0 46px 24px;
+            }
+
+            .floating-product {
+                width: 176px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .product-title-row {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-
-    <h1>Catálogo Atomy</h1>
-
-    <div class="produto">
-        <img src="https://image.atomy.com/KR/goods/001507/1d87be7f-b337-413b-9365-acd231fdb01b.jpg" alt="Reset Balm">
-
-        <h2>RESET BALM</h2>
-       <h3>R$180,00</h3>
-
-        <button onclick="mostrarDetalhes()">Ver detalhes</button>
-
-        <div class="detalhes" id="detalhes">
-            <p><strong>Descrição:</strong> Reset Balm é um bálsamo multifuncional desenvolvido para restaurar, hidratar e acalmar a pele. Com textura suave e de rápida absorção, ele ajuda a reparar áreas ressecadas, aliviar irritações e devolver conforto imediato. Ideal para lábios, mãos, cutículas e regiões que precisam de cuidado extra no dia a dia.</p>
-
-            <p><strong>Ingredientes:</strong> Triisoestearato de poligliceril-2, óleo de semente de girassol, óleo de semente de macadâmia, manteiga de karité, óleo de rícino, niacinamida, pantenol, Ceramida NP, glicerina, óleo de semente de moringa e outros ingredientes ativos.</p>
-
-            <button>
-                <a href="https://wa.me/5511972258721" target="_blank">
-                    Comprar no WhatsApp
-                </a>
-            </button>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="#home" aria-label="Catálogo Atomy Grazi">Atomy Grazi</a>
+            <nav class="nav" aria-label="Menu principal">
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#products">Product</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
-    </div>
-    <div class="produto">
-        <img src="https://image.atomy.com/KR/goods/001523/18dc0155-4f0d-4adb-afbe-df2abe7c7cec.jpg?w=1360&h=1360">
+    </header>
 
-        <h2>HYDRA BALM</h2>
-        <h3>R$180,00</h3>
+    <main id="home">
+        <section class="hero" aria-labelledby="hero-title">
+            <span class="decor plus-one">+</span>
+            <span class="decor plus-two">+</span>
+            <span class="decor dot"></span>
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">Catálogo Atomy</p>
+                    <h1 id="hero-title">Experience the Artistry of Makeup</h1>
+                    <p>Produtos Atomy selecionados para cuidado diário da pele, hidratação e proteção solar. Confira detalhes, ingredientes e fale pelo WhatsApp para comprar.</p>
+                    <div class="hero-actions">
+                        <a class="btn" href="https://wa.me/5511972258721" target="_blank" rel="noopener">Order Now</a>
+                        <a class="hero-note" href="#products">Ver catálogo completo</a>
+                    </div>
+                </div>
+                <div class="hero-media" aria-label="Produtos Atomy em destaque">
+                    <div class="hero-card">
+                        <img src="https://image.atomy.com/KR/goods/001523/18dc0155-4f0d-4adb-afbe-df2abe7c7cec.jpg?w=1360&h=1360" alt="Hydra Balm Atomy">
+                    </div>
+                    <div class="floating-product">
+                        <img src="https://image.atomy.com/KR/goods/001507/1d87be7f-b337-413b-9365-acd231fdb01b.jpg" alt="Reset Balm Atomy">
+                        <strong>RESET BALM</strong>
+                        <p>R$180,00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-       <button onclick="mostrarDetalhes2()">Ver detalhes</button>
+        <section class="section" id="products" aria-labelledby="products-title">
+            <div class="container">
+                <div class="section-header">
+                    <p class="eyebrow">Best Product</p>
+                    <h2 id="products-title">Produtos destacados</h2>
+                    <p>Conheça os cuidados Atomy disponíveis, compare descrições, veja ingredientes e fale direto pelo WhatsApp para comprar.</p>
+                </div>
 
-       <div class="detalhes" id="detalhes2">
-            <p><strong>Descrição:</strong> Hydra Balm é um bálsamo hidratante desenvolvido para nutrir profundamente e manter a pele protegida ao longo do dia. Sua fórmula rica e confortável ajuda a restaurar a hidratação natural, suavizar o ressecamento e deixar a pele mais macia, saudável e luminosa. Ideal para quem busca cuidado intenso com toque leve e sensação de conforto imediato.</p>
+                <div class="products-grid">
+                    <article class="product-card">
+                        <img class="product-image" src="https://image.atomy.com/KR/goods/001507/1d87be7f-b337-413b-9365-acd231fdb01b.jpg" alt="Reset Balm">
+                        <div class="product-body">
+                            <div class="product-title-row">
+                                <h3>RESET BALM</h3>
+                                <span class="price">R$180,00</span>
+                            </div>
+                            <p class="product-summary">Bálsamo multifuncional para restaurar, hidratar e acalmar a pele em áreas ressecadas.</p>
+                            <div class="product-actions">
+                                <button class="btn btn-dark" type="button" data-details="reset-balm">Ver detalhes</button>
+                                <a class="btn" href="https://wa.me/5511972258721" target="_blank" rel="noopener">Buy Now</a>
+                            </div>
+                            <div class="details-panel" id="reset-balm">
+                                <p><strong>Descrição:</strong> Reset Balm é um bálsamo multifuncional desenvolvido para restaurar, hidratar e acalmar a pele. Com textura suave e de rápida absorção, ele ajuda a reparar áreas ressecadas, aliviar irritações e devolver conforto imediato. Ideal para lábios, mãos, cutículas e regiões que precisam de cuidado extra no dia a dia.</p>
+                                <p><strong>Ingredientes:</strong> Triisoestearato de poligliceril-2, óleo de semente de girassol, óleo de semente de macadâmia, manteiga de karité, óleo de rícino, niacinamida, pantenol, Ceramida NP, glicerina, óleo de semente de moringa e outros ingredientes ativos.</p>
+                            </div>
+                        </div>
+                    </article>
 
-            <p><strong>Ingredientes:</strong> Água de Lótus Azul (substitui a água purificada), Malaquita, Colágeno Hidrolisado, Xanthy Lift, Absolute Selective Code, Collazome (Colasil, Saponina, SYN-CILL, BERRY-TIDE)</p>
+                    <article class="product-card">
+                        <img class="product-image" src="https://image.atomy.com/KR/goods/001523/18dc0155-4f0d-4adb-afbe-df2abe7c7cec.jpg?w=1360&h=1360" alt="Hydra Balm">
+                        <div class="product-body">
+                            <div class="product-title-row">
+                                <h3>HYDRA BALM</h3>
+                                <span class="price">R$180,00</span>
+                            </div>
+                            <p class="product-summary">Bálsamo hidratante para nutrir profundamente e manter a pele protegida ao longo do dia.</p>
+                            <div class="product-actions">
+                                <button class="btn btn-dark" type="button" data-details="hydra-balm">Ver detalhes</button>
+                                <a class="btn" href="https://wa.me/5511972258721" target="_blank" rel="noopener">Buy Now</a>
+                            </div>
+                            <div class="details-panel" id="hydra-balm">
+                                <p><strong>Descrição:</strong> Hydra Balm é um bálsamo hidratante desenvolvido para nutrir profundamente e manter a pele protegida ao longo do dia. Sua fórmula rica e confortável ajuda a restaurar a hidratação natural, suavizar o ressecamento e deixar a pele mais macia, saudável e luminosa. Ideal para quem busca cuidado intenso com toque leve e sensação de conforto imediato.</p>
+                                <p><strong>Ingredientes:</strong> Água de Lótus Azul (substitui a água purificada), Malaquita, Colágeno Hidrolisado, Xanthy Lift, Absolute Selective Code, Collazome (Colasil, Saponina, SYN-CILL, BERRY-TIDE).</p>
+                            </div>
+                        </div>
+                    </article>
 
-            <button>
-                <a href="https://wa.me/5511972258721" target="_blank">
-                    Comprar no WhatsApp
-                </a>
-            </button>
+                    <article class="product-card">
+                        <img class="product-image" src="https://image.atomy.com/KR/goods/000286/836bbc60-8659-4ea0-a465-1b879afcc3e2.jpg?w=1360&h=1360" alt="Sun Stick">
+                        <div class="product-body">
+                            <div class="product-title-row">
+                                <h3>SUN STICK</h3>
+                                <span class="price">R$120,00</span>
+                            </div>
+                            <p class="product-summary">Protetor solar em bastão com SPF50+ PA++++, toque seco e reaplicação prática.</p>
+                            <div class="product-actions">
+                                <button class="btn btn-dark" type="button" data-details="sun-stick">Ver detalhes</button>
+                                <a class="btn" href="https://wa.me/5511972258721" target="_blank" rel="noopener">Buy Now</a>
+                            </div>
+                            <div class="details-panel" id="sun-stick">
+                                <p><strong>Descrição:</strong> Atomy Sun Stick é um protetor solar em bastão prático e fácil de reaplicar ao longo do dia, até mesmo sobre a maquiagem. Com SPF50+ PA++++, oferece alta proteção contra os raios UV enquanto também auxilia no clareamento da pele e na melhora da aparência de linhas finas e rugas. Sua fórmula possui acabamento semi-transparente, desliza suavemente sem deixar resíduos brancos e pode ser reaplicada várias vezes sem acumular. Além disso, conta com ingredientes de origem vegetal que ajudam a hidratar e acalmar a pele, como óleo de semente de girassol, Blueweed e extrato de flor balão. Perfeito para quem busca proteção solar eficiente, toque seco e praticidade para usar em qualquer lugar.</p>
+                                <p><strong>Ingredientes:</strong> Dicaprilato/dicaprato de butilenoglicol, octildodecanol, propil-heptilcaprilato, octocrileno, metoxicinamato de etilhexila, carbonato de dicaprilila, salicilato de etilhexila, dibutil lauroil glutamida, dibutil etilhexanoil glutamida, dietilaminohidroxibenzoil hexil benzoato, bis-etilhexil oxifenol metoxifenil triazina, acetato de tocoferila, sílica, palmitato de dextrina, poliamida-8, óleo de laranja, óleo da casca de laranja filipina, óleo da semente de Echium plantagineum, óleo do fruto da lichia, extrato da flor/folha/ramo da planta-balão, insaponificáveis do óleo da semente de girassol, extrato da folha de caqui, extrato da semente de narciso, alfa-bisabolol, ácido desidroacético, pentaeritritil tetra-di-t-butil-hidroxihidrocinamato, glicerina, água purificada.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <img class="product-image" src="https://image.atomy.com/KR/goods/000780/c7f13ea4-b412-4197-925d-50a49f55372f.jpg?w=1360&h=1360" alt="Derma Calming Sun Stick">
+                        <div class="product-body">
+                            <div class="product-title-row">
+                                <h3>DERMA CALMIN SUN STICK</h3>
+                                <span class="price">R$140,00</span>
+                            </div>
+                            <p class="product-summary">Protetor solar em bastão para peles sensíveis, com calamina rosa e acabamento leve.</p>
+                            <div class="product-actions">
+                                <button class="btn btn-dark" type="button" data-details="derma-calmin">Ver detalhes</button>
+                                <a class="btn" href="https://wa.me/5511972258721" target="_blank" rel="noopener">Buy Now</a>
+                            </div>
+                            <div class="details-panel" id="derma-calmin">
+                                <p><strong>Descrição:</strong> O Atomy Derma Calming Sun Stick é um protetor solar em bastão para peles sensíveis que protege contra os raios UVA e UVB, acalma a pele com calamina rosa, hidrata e ajuda a reparar com extratos de flor e aloe vera, deixando acabamento leve e sem oleosidade. O bastão sólido é prático para aplicar e reaplicar a qualquer hora. Sua fórmula possui acabamento semi-transparente, desliza suavemente sem deixar resíduos brancos e pode ser reaplicada várias vezes sem acumular. Além disso, conta com ingredientes de origem vegetal que ajudam a hidratar e acalmar a pele, como óleo de semente de girassol, Blueweed e extrato de flor balão. Perfeito para quem busca proteção solar eficiente, toque seco e praticidade para usar em qualquer lugar.</p>
+                                <p><strong>Ingredientes:</strong> Palmitato de etilhexila, palmitato de isopropila, polietileno, benzoato de alquila C12-15, dióxido de titânio, fluoroflogopita sintética, polímero cruzado de metacrilato de metila, polimetilsilsesquioxano, fenil trimeticona, dicaprilato/dicaprato de butilenoglicol, caprilil meticona, ozoquerita, estearato de alumínio, ácido polihidroxiesteárico, óleo de laranja, óleo da casca de laranja filipina, óleo de lichia, água de cipreste, extrato da folha de aloe vera, extrato de malva-rosa, calamina, triglicerídeo caprílico/cáprico, alumina, diisoestearato/polihidroxiestearato/sebacato de poligliceril-4, trietoxicaprililsilano, ácido desidroacético, ácido esteárico, citral, linalol, citronelol, limoneno.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <img class="product-image" src="https://image.atomy.com/KR/goods/000276/b56dee29-488f-4781-948b-8771c8e8020a.jpg?w=1360&h=1360" alt="Essence Sun">
+                        <div class="product-body">
+                            <div class="product-title-row">
+                                <h3>ESSENCE SUN</h3>
+                                <span class="price">R$160,00</span>
+                            </div>
+                            <p class="product-summary">Protetor solar em essência com SPF50+/PA++++, hidratação e acabamento natural.</p>
+                            <div class="product-actions">
+                                <button class="btn btn-dark" type="button" data-details="essence-sun">Ver detalhes</button>
+                                <a class="btn" href="https://wa.me/5511972258721" target="_blank" rel="noopener">Buy Now</a>
+                            </div>
+                            <div class="details-panel" id="essence-sun">
+                                <p><strong>Descrição:</strong> O Atomy Absolute Essence Sun é um protetor solar em essência que une proteção solar, clareamento e cuidado anti-idade em um só produto. Com SPF50+/PA++++, protege a pele dos raios UVA e UVB, enquanto sua fórmula leve e não oleosa mantém a pele hidratada, calma e com acabamento natural. Contém extratos vegetais e ativos funcionais que iluminam, firmam e suavizam a pele, oferecendo praticidade e conforto para uso diário.</p>
+                                <p><strong>Ingredientes:</strong> Água purificada, Metoxicinamato de etilhexila, Salicilato de etilhexila, Butilenoglicol, Benzoato de alquila C12-15, Benzoato de dietilaminohidroxibenzoilhexila, Homosalato, Octocrileno, Dióxido de titânio, 1,2-Hexanodiol, Niacinamida, Etanol, Extrato de pitaya, Fosfato de alquila C20-22, Álcool C20-22, Sílica, Caprilil meticona, Extrato de cúrcuma, Extrato de semente de chia, Extrato de Portulaca oleracea, Extrato de Centella asiatica, Extrato de Houttuynia cordata, Lisado fermentado de Pichia, Água de chá verde, Extrato de folha de caqui, Óleo de semente de erva-azul, Extrato de flor/folha/ramo de cipó-balão, Insaponificáveis de óleo de semente de girassol, Estearato de glicerila, Álcool behenílico, Estearato de alumínio, Ácido polihidroxiesteárico, Acrilato de sódio/Acriloil dimetil de sódio Copolímero de taurato, trometamina, isohexadecano, polissorbato 80, propanodiol, hidrolisado de sacarídeo, polímero cruzado de poliacrilato-6, alumina, etilhexilglicerina, caprilato de glicerila, octildodecanol, goma xantana, adenosina, glicerina, lecitina hidrogenada, rafinose, pentilenoglicol, pantenol, colesterol, proteína de tremoço hidrolisada, ceramida NP, copolímero de ácido lático/ácido glicólico, álcool polivinílico, glicina, ácido glutâmico, glutamina, lisina, leucina, valina, serina, ácido aspártico, alanina, arginina, isoleucina, tirosina, triptofano, ácido palmítico, fenilalanina, prolina, histidina, fragrância, óxido de ferro amarelo, óxido de ferro vermelho.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <img class="product-image" src="https://diplomatic-green-ghhqwvfdyq.edgeone.app/bc68ace9-0d3b-4b3a-beac-406678d38657%20(1).png" alt="Sunscreen">
+                        <div class="product-body">
+                            <div class="product-title-row">
+                                <h3>SUNSCREEN</h3>
+                                <span class="price">R$120,00</span>
+                            </div>
+                            <p class="product-summary">Protetor solar de alta proteção para todos os tipos de pele, nas versões White e Beige.</p>
+                            <div class="product-actions">
+                                <button class="btn btn-dark" type="button" data-details="sunscreen">Ver detalhes</button>
+                                <a class="btn" href="https://wa.me/5511972258721" target="_blank" rel="noopener">Buy Now</a>
+                            </div>
+                            <div class="details-panel" id="sunscreen">
+                                <p><strong>Descrição:</strong> O Atomy Sunscreen é um protetor solar de alta proteção para todos os tipos de pele, disponível nas versões White e Beige. Com SPF50+ PA+++, oferece dupla proteção contra raios UVA e UVB, combinando filtros físicos e químicos para bloquear e refletir os raios solares sem causar irritação. Sua fórmula contém extratos vegetais que hidratam e acalmam a pele, como centella asiática, chá verde, limão-balm, marshmallow e borage, proporcionando cuidado extra enquanto protege. A textura leve e não oleosa garante acabamento natural, sem efeito branco ou pegajoso, ideal para rosto e corpo.</p>
+                                <p><strong>Ingredientes:</strong> Água purificada, ciclopentasiloxano, metoxicinamato de etilhexila, óxido de zinco, salicilato de etilhexila, dióxido de titânio, glicerina, dipropilenoglicol, PEG-10 dimeticona, carbonato de dicaprilila, hectorita de disteadimônio, extrato de folha de visco, extrato de centella asiática, extrato de portulaca oleracea, acetato de tocoferila, extrato de chá verde, óleo de Thymus vulgaris, extrato de melissa, extrato de folha/raiz de marshmallow, extrato de folha de perilla, extrato de borragem, extrato de jasmim, dimeticona, sulfato de magnésio, hidróxido de alumínio, bis-etilhexiloxifenol metoxifenil triazina, ácido esteárico, crospolímero de vinil dimeticona/meticona silsesquioxano, meticona, caprililglicol, polimetilsilsesquioxano, caprilato de glicerila, poligliceril-6 polirricinoleato, PEG-polidimetilsiloxietil dimeticona, celulose microcristalina, crospolímero de dimeticona/vinil dimeticona, goma de celulose, fragrância, fenoxietanol.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <img class="product-image" src="https://image.atomy.com/KR/goods/001531/org/605/250321000038605.jpg?w=1360&h=1360" alt="Tone-Up Essence Sun">
+                        <div class="product-body">
+                            <div class="product-title-row">
+                                <h3>TONE-UP ESSENCE SUN</h3>
+                                <span class="price">R$160,00</span>
+                            </div>
+                            <p class="product-summary">Protetor solar em essência com proteção contra raios UVA, UVB e luz azul.</p>
+                            <div class="product-actions">
+                                <button class="btn btn-dark" type="button" data-details="tone-up">Ver detalhes</button>
+                                <a class="btn" href="https://wa.me/5511972258721" target="_blank" rel="noopener">Buy Now</a>
+                            </div>
+                            <div class="details-panel" id="tone-up">
+                                <p><strong>Descrição:</strong> O Atomy Absolute Snow Tone-Up Essence Sun é um protetor solar em essência que oferece proteção completa contra raios UVA, UVB e luz azul, com efeito de clareamento e cuidado anti-idade. Com SPF50+/PA++++, sua fórmula mineral forma uma barreira uniforme, proporcionando pele radiante, natural e hidratada, sem sensação pegajosa. Contém ativos que iluminam, acalmam e cuidam da pele, garantindo proteção e efeito tonalizante em um único produto.</p>
+                                <p><strong>Ingredientes:</strong> O Atomy Absolute Snow Tone-Up Essence Sun é um protetor solar em essência que oferece proteção completa contra raios UVA, UVB e luz azul, com efeito de clareamento e cuidado anti-idade. Com SPF50+/PA++++, sua fórmula mineral forma uma barreira uniforme, proporcionando pele radiante, natural e hidratada, sem sensação pegajosa. Contém ativos que iluminam, acalmam e cuidam da pele, garantindo proteção e efeito tonalizante em um único produto.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section stats" id="about" aria-labelledby="stats-title">
+            <div class="container">
+                <div class="section-header">
+                    <p class="eyebrow">Experiência</p>
+                    <h2 id="stats-title">Cuidado, beleza e praticidade</h2>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>15+ Years of Experience</h3>
+                        <p>Curadoria com foco em rotina de beleza, hidratação e proteção.</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>5K Original Beauty Products</h3>
+                        <p>Catálogo organizado para destacar produtos originais de skincare.</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>10K+ Happy Clients</h3>
+                        <p>Atendimento direto pelo WhatsApp para tirar dúvidas e comprar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section difference" aria-labelledby="difference-title">
+            <div class="container difference-grid">
+                <div class="difference-media">
+                    <img src="https://image.atomy.com/KR/goods/000276/b56dee29-488f-4781-948b-8771c8e8020a.jpg?w=1360&h=1360" alt="Atomy Essence Sun">
+                </div>
+                <div>
+                    <p class="eyebrow">Diferenciais</p>
+                    <h2 id="difference-title">What Makes us Different From Others</h2>
+                    <p>O catálogo reúne descrições claras, ingredientes e contato direto para compra, sem etapas complicadas.</p>
+                    <ul class="difference-list">
+                        <li>Produtos com foco em hidratação, cuidado da pele e proteção solar.</li>
+                        <li>Detalhes de cada item acessíveis no próprio card.</li>
+                        <li>Compra rápida pelo WhatsApp com a Grazi.</li>
+                    </ul>
+                    <a class="btn" href="https://wa.me/5511972258721" target="_blank" rel="noopener">Order Now</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="faq-title">
+            <div class="container">
+                <div class="section-header">
+                    <p class="eyebrow">QnA</p>
+                    <h2 id="faq-title">Perguntas frequentes</h2>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" aria-expanded="false">
+                            <span>Como faço para comprar?</span>
+                            <span>+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Clique em "Buy Now" ou "Order Now" para abrir o WhatsApp e falar diretamente pelo número informado no catálogo.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" aria-expanded="false">
+                            <span>Posso tirar dúvidas antes de comprar?</span>
+                            <span>+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sim. Pelo WhatsApp você pode confirmar disponibilidade, forma de entrega e a melhor opção para sua rotina de cuidado.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" type="button" aria-expanded="false">
+                            <span>Quais tipos de produto encontro no catálogo?</span>
+                            <span>+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>O catálogo reúne bálsamos hidratantes, protetores solares em bastão, protetores em essência e opções para diferentes necessidades da pele.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section testimonials" aria-labelledby="testimonials-title">
+            <div class="container">
+                <div class="section-header">
+                    <p class="eyebrow">Clientes</p>
+                    <h2 id="testimonials-title">Testemunhos de clientes</h2>
+                </div>
+                <div class="testimonial-grid">
+                    <article class="testimonial-card">
+                        <div class="testimonial-head">
+                            <span class="avatar">M</span>
+                            <div>
+                                <strong>Marina</strong>
+                                <div class="stars" aria-label="5 estrelas">★★★★★</div>
+                            </div>
+                        </div>
+                        <p>Gostei da praticidade para ver os produtos e falar direto no WhatsApp.</p>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-head">
+                            <span class="avatar">C</span>
+                            <div>
+                                <strong>Camila</strong>
+                                <div class="stars" aria-label="5 estrelas">★★★★★</div>
+                            </div>
+                        </div>
+                        <p>As descrições ajudam bastante a comparar os protetores solares.</p>
+                    </article>
+                    <article class="testimonial-card">
+                        <div class="testimonial-head">
+                            <span class="avatar">A</span>
+                            <div>
+                                <strong>Ana</strong>
+                                <div class="stars" aria-label="5 estrelas">★★★★★</div>
+                            </div>
+                        </div>
+                        <p>Catálogo simples, bonito e fácil de navegar pelo celular.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section newsletter" aria-labelledby="newsletter-title">
+            <div class="container newsletter-inner">
+                <div>
+                    <p class="eyebrow">Newsletter</p>
+                    <h2 id="newsletter-title">Receba novidades do catálogo</h2>
+                    <p>Deixe seu e-mail para acompanhar novos produtos e atualizações.</p>
+                </div>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" name="email" placeholder="seu@email.com" aria-label="E-mail" required>
+                    <button class="btn btn-dark" type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Atomy Grazi</h3>
+                    <p>Catálogo Atomy com produtos de beleza, skincare e proteção solar.</p>
+                </div>
+                <div>
+                    <h4>Quick links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">Product</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contato</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://wa.me/5511972258721" target="_blank" rel="noopener">WhatsApp: +55 11 97225-8721</a></li>
+                        <li>Atendimento para dúvidas e pedidos.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Mídias sociais</h4>
+                    <div class="social-links" aria-label="Links sociais">
+                        <a href="https://wa.me/5511972258721" target="_blank" rel="noopener" aria-label="WhatsApp">W</a>
+                        <a href="#home" aria-label="Catálogo">C</a>
+                        <a href="#products" aria-label="Produtos">P</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Atomy Grazi. Catálogo estático em HTML, CSS e JavaScript puro.</span>
+            </div>
         </div>
-    </div>
- <div class="produto">
-        <img src="https://image.atomy.com/KR/goods/000286/836bbc60-8659-4ea0-a465-1b879afcc3e2.jpg?w=1360&h=1360">
+    </footer>
 
-        <h2>SUN STICK</h2>
-       <h3>R$120,00</h3>
-
-        <button onclick="mostrarDetalhes3()">Ver detalhes</button>
-
-        <div class="detalhes" id="detalhes3">
-            <p><strong>Descrição:</strong> Atomy Sun Stick é um protetor solar em bastão prático e fácil de reaplicar ao longo do dia, até mesmo sobre a maquiagem. Com SPF50+ PA++++, oferece alta proteção contra os raios UV enquanto também auxilia no clareamento da pele e na melhora da aparência de linhas finas e rugas.
-
-Sua fórmula possui acabamento semi-transparente, desliza suavemente sem deixar resíduos brancos e pode ser reaplicada várias vezes sem acumular. Além disso, conta com ingredientes de origem vegetal que ajudam a hidratar e acalmar a pele, como óleo de semente de girassol, Blueweed e extrato de flor balão.
-
-Perfeito para quem busca proteção solar eficiente, toque seco e praticidade para usar em qualquer lugar.</p>
-
-            <p><strong>Ingredientes:</strong> Dicaprilato/dicaprato de butilenoglicol, octildodecanol, propil-heptilcaprilato, octocrileno, metoxicinamato de etilhexila, carbonato de dicaprilila, salicilato de etilhexila, dibutil lauroil glutamida, dibutil etilhexanoil glutamida, dietilaminohidroxibenzoil hexil benzoato, bis-etilhexil oxifenol metoxifenil triazina, acetato de tocoferila, sílica, palmitato de dextrina, poliamida-8, óleo de laranja, óleo da casca de laranja filipina, óleo da semente de Echium plantagineum, óleo do fruto da lichia, extrato da flor/folha/ramo da planta-balão, insaponificáveis ​​do óleo da semente de girassol, extrato da folha de caqui, extrato da semente de narciso, alfa-bisabolol, ácido desidroacético, pentaeritritil tetra-di-t-butil-hidroxihidrocinamato, glicerina, água purificada </p>
-
-            <button>
-                <a href="https://wa.me/5511972258721" target="_blank">
-                    Comprar no WhatsApp
-                </a>
-            </button>
-        </div>
-    </div>
-    <div class="produto">
-        <img src="https://image.atomy.com/KR/goods/000780/c7f13ea4-b412-4197-925d-50a49f55372f.jpg?w=1360&h=1360">
-
-        <h2>DERMA CALMIN SUN STICK</h2>
-       <h3>R$140,00</h3>
-
-        <button onclick="mostrarDetalhes4()">Ver detalhes</button>
-
-        <div class="detalhes" id="detalhes4">
-            <p><strong>Descrição:</strong> O Atomy Derma Calming Sun Stick é um protetor solar em bastão para peles sensíveis que protege contra os raios UVA e UVB, acalma a pele com calamina rosa, hidrata e ajuda a reparar com extratos de flor e aloe vera, deixando acabamento leve e sem oleosidade. O bastão sólido é prático para aplicar e reaplicar a qualquer hora.
-
-Sua fórmula possui acabamento semi-transparente, desliza suavemente sem deixar resíduos brancos e pode ser reaplicada várias vezes sem acumular. Além disso, conta com ingredientes de origem vegetal que ajudam a hidratar e acalmar a pele, como óleo de semente de girassol, Blueweed e extrato de flor balão.
-
-Perfeito para quem busca proteção solar eficiente, toque seco e praticidade para usar em qualquer lugar.</p>
-
-            <p><strong>Ingredientes:</strong> Palmitato de etilhexila, palmitato de isopropila, polietileno, benzoato de alquila C12-15, dióxido de titânio, fluoroflogopita sintética, polímero cruzado de metacrilato de metila, polimetilsilsesquioxano, fenil trimeticona, dicaprilato/dicaprato de butilenoglicol, caprilil meticona, ozoquerita, estearato de alumínio, ácido polihidroxiesteárico, óleo de laranja, óleo da casca de laranja filipina, óleo de lichia, água de cipreste, extrato da folha de aloe vera, extrato de malva-rosa, calamina, triglicerídeo caprílico/cáprico, alumina, diisoestearato/polihidroxiestearato/sebacato de poligliceril-4, trietoxicaprililsilano, ácido desidroacético, ácido esteárico, citral, linalol, citronelol, limoneno. </p>
-
-            <button>
-                <a href="https://wa.me/5511972258721" target="_blank">
-                    Comprar no WhatsApp
-                </a>
-            </button>
-        </div>
-    </div>
-     <div class="produto">
-        <img src="https://image.atomy.com/KR/goods/000276/b56dee29-488f-4781-948b-8771c8e8020a.jpg?w=1360&h=1360">
-
-        <h2>ESSENCE SUN</h2>
-       <h3>R$160,00</h3>
-
-        <button onclick="mostrarDetalhes5()">Ver detalhes</button>
-
-        <div class="detalhes" id="detalhes5">
-            <p><strong>Descrição:</strong> O Atomy Absolute Essence Sun é um protetor solar em essência que une proteção solar, clareamento e cuidado anti-idade em um só produto. Com SPF50+/PA++++, protege a pele dos raios UVA e UVB, enquanto sua fórmula leve e não oleosa mantém a pele hidratada, calma e com acabamento natural. Contém extratos vegetais e ativos funcionais que iluminam, firmam e suavizam a pele, oferecendo praticidade e conforto para uso diário.</p>
-
-            <p><strong>Ingredientes:</strong> Água purificada, Metoxicinamato de etilhexila, Salicilato de etilhexila, Butilenoglicol, Benzoato de alquila C12-15, Benzoato de dietilaminohidroxibenzoilhexila, Homosalato, Octocrileno, Dióxido de titânio, 1,2-Hexanodiol, Niacinamida, Etanol, Extrato de pitaya, Fosfato de alquila C20-22, Álcool C20-22, Sílica, Caprilil meticona, Extrato de cúrcuma, Extrato de semente de chia, Extrato de Portulaca oleracea, Extrato de Centella asiatica, Extrato de Houttuynia cordata, Lisado fermentado de Pichia, Água de chá verde, Extrato de folha de caqui, Óleo de semente de erva-azul, Extrato de flor/folha/ramo de cipó-balão, Insaponificáveis ​​de óleo de semente de girassol, Estearato de glicerila, Álcool behenílico, Estearato de alumínio, Ácido polihidroxiesteárico, Acrilato de sódio/Acriloil dimetil de sódio Copolímero de taurato, trometamina, isohexadecano, polissorbato 80, propanodiol, hidrolisado de sacarídeo, polímero cruzado de poliacrilato-6, alumina, etilhexilglicerina, caprilato de glicerila, octildodecanol, goma xantana, adenosina, glicerina, lecitina hidrogenada, rafinose, pentilenoglicol, pantenol, colesterol, proteína de tremoço hidrolisada, ceramida NP, copolímero de ácido lático/ácido glicólico, álcool polivinílico, glicina, ácido glutâmico, glutamina, lisina, leucina, valina, serina, ácido aspártico, alanina, arginina, isoleucina, tirosina, triptofano, ácido palmítico, fenilalanina, prolina, histidina, fragrância, óxido de ferro amarelo, óxido de ferro vermelho. </p>
-
-            <button>
-                <a href="https://wa.me/5511972258721" target="_blank">
-                    Comprar no WhatsApp
-                </a>
-            </button>
-        </div>
-    </div>
-    <div class="produto">
-        <img src="https://diplomatic-green-ghhqwvfdyq.edgeone.app/bc68ace9-0d3b-4b3a-beac-406678d38657%20(1).png">
-
-        <h2>SUNSCREEN </h2>
-       <h3>R$120,00</h3>
-
-        <button onclick="mostrarDetalhes6()">Ver detalhes</button>
-
-        <div class="detalhes" id="detalhes6">
-            <p><strong>Descrição:</strong> O Atomy Sunscreen é um protetor solar de alta proteção para todos os tipos de pele, disponível nas versões White e Beige. Com SPF50+ PA+++, oferece dupla proteção contra raios UVA e UVB, combinando filtros físicos e químicos para bloquear e refletir os raios solares sem causar irritação.
-
-Sua fórmula contém extratos vegetais que hidratam e acalmam a pele, como centella asiática, chá verde, limão-balm, marshmallow e borage, proporcionando cuidado extra enquanto protege. A textura leve e não oleosa garante acabamento natural, sem efeito branco ou pegajoso, ideal para rosto e corpo.</p>
-
-            <p><strong>Ingredientes:</strong> Água purificada, ciclopentasiloxano, metoxicinamato de etilhexila, óxido de zinco, salicilato de etilhexila, dióxido de titânio, glicerina, dipropilenoglicol, PEG-10 dimeticona, carbonato de dicaprilila, hectorita de disteadimônio, extrato de folha de visco, extrato de centella asiática, extrato de portulaca oleracea, acetato de tocoferila, extrato de chá verde, óleo de Thymus vulgaris, extrato de melissa, extrato de folha/raiz de marshmallow, extrato de folha de perilla, extrato de borragem, extrato de jasmim, dimeticona, sulfato de magnésio, hidróxido de alumínio, bis-etilhexiloxifenol metoxifenil triazina, ácido esteárico, crospolímero de vinil dimeticona/meticona silsesquioxano, meticona, caprililglicol, polimetilsilsesquioxano, caprilato de glicerila, poligliceril-6 polirricinoleato, PEG-polidimetilsiloxietil dimeticona, celulose microcristalina, crospolímero de dimeticona/vinil dimeticona, goma de celulose, fragrância, fenoxietanol. </p>
-
-            <button>
-                <a href="https://wa.me/5511972258721" target="_blank">
-                    Comprar no WhatsApp
-                </a>
-            </button>
-        </div>
-    </div>
-     <div class="produto">
-        <img src="https://image.atomy.com/KR/goods/001531/org/605/250321000038605.jpg?w=1360&h=1360">
-
-        <h2>TONE-UP ESSENCE SUN </h2>
-       <h3>R$160,00</h3>
-
-        <button onclick="mostrarDetalhes7()">Ver detalhes</button>
-
-        <div class="detalhes" id="detalhes7">
-            <p><strong>Descrição:</strong> O Atomy Absolute Snow Tone-Up Essence Sun é um protetor solar em essência que oferece proteção completa contra raios UVA, UVB e luz azul, com efeito de clareamento e cuidado anti-idade. Com SPF50+/PA++++, sua fórmula mineral forma uma barreira uniforme, proporcionando pele radiante, natural e hidratada, sem sensação pegajosa. Contém ativos que iluminam, acalmam e cuidam da pele, garantindo proteção e efeito tonalizante em um único produto.</p>
-
-            <p><strong>Ingredientes:</strong> O Atomy Absolute Snow Tone-Up Essence Sun é um protetor solar em essência que oferece proteção completa contra raios UVA, UVB e luz azul, com efeito de clareamento e cuidado anti-idade. Com SPF50+/PA++++, sua fórmula mineral forma uma barreira uniforme, proporcionando pele radiante, natural e hidratada, sem sensação pegajosa. Contém ativos que iluminam, acalmam e cuidam da pele, garantindo proteção e efeito tonalizante em um único produto. </p>
-
-            <button>
-                <a href="https://wa.me/5511972258721" target="_blank">
-                    Comprar no WhatsApp
-                </a>
-            </button>
-        </div>
-    </div>
     <script>
-function mostrarDetalhes() {
-    var detalhes = document.getElementById("detalhes");
+        document.querySelectorAll("[data-details]").forEach(function (button) {
+            button.addEventListener("click", function () {
+                var panel = document.getElementById(button.dataset.details);
+                var isOpen = panel.classList.toggle("is-open");
+                button.textContent = isOpen ? "Ocultar detalhes" : "Ver detalhes";
+            });
+        });
 
-    if (detalhes.style.display === "block") {
-        detalhes.style.display = "none";
-    } else {
-        detalhes.style.display = "block";
-    }
-}
+        document.querySelectorAll(".faq-question").forEach(function (button) {
+            button.addEventListener("click", function () {
+                var item = button.closest(".faq-item");
+                var isOpen = item.classList.toggle("is-open");
+                button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                button.querySelector("span:last-child").textContent = isOpen ? "-" : "+";
+            });
+        });
 
-function mostrarDetalhes2() {
-    var detalhes = document.getElementById("detalhes2");
-
-    if (detalhes.style.display === "block") {
-        detalhes.style.display = "none";
-    } else {
-        detalhes.style.display = "block";
-    }
-}
-
-function mostrarDetalhes3() {
-    var detalhes = document.getElementById("detalhes3");
-
-    if (detalhes.style.display === "block") {
-        detalhes.style.display = "none";
-    } else {
-        detalhes.style.display = "block";
-    }
-}
-        function mostrarDetalhes4() {
-    var detalhes = document.getElementById("detalhes4");
-
-    if (detalhes.style.display === "block") {
-        detalhes.style.display = "none";
-    } else {
-        detalhes.style.display = "block";
-    }
-}
-       
-function mostrarDetalhes5() {
-    var detalhes = document.getElementById("detalhes5");
-
-    if (detalhes.style.display === "block") {
-        detalhes.style.display = "none";
-    } else {
-        detalhes.style.display = "block";
-    }
-}
-       function mostrarDetalhes6() {
-    var detalhes = document.getElementById("detalhes6");
-
-    if (detalhes.style.display === "block") {
-        detalhes.style.display = "none";
-    } else {
-        detalhes.style.display = "block";
-    }
-}
-          function mostrarDetalhes7() {
-    var detalhes = document.getElementById("detalhes7");
-
-    if (detalhes.style.display === "block") {
-        detalhes.style.display = "none";
-    } else {
-        detalhes.style.display = "block";
-    }
-}
-</script>
+        document.getElementById("newsletter-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            var email = event.target.email.value.trim();
+            if (!email) {
+                return;
+            }
+            var message = encodeURIComponent("Olá, quero receber novidades do catálogo Atomy. Meu e-mail é: " + email);
+            window.open("https://wa.me/5511972258721?text=" + message, "_blank", "noopener");
+        });
+    </script>
+</body>
+</html>

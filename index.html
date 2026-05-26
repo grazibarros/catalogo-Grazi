@@ -10,18 +10,103 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --dark: #262626;
-            --muted: #525252;
-            --navy: #143D4B;
-            --blue: #94CCDF;
-            --white: #FFFFFF;
-            --soft: #F5FAFC;
-            --line: rgba(20, 61, 75, 0.14);
-            --shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-            --radius: 8px;
-            --max-width: 1180px;
+        <style>
+    :root {
+        --dark: #262626;
+        --muted: #525252;
+        --navy: #143D4B;
+        --blue: #94CCDF;
+        --white: #FFFFFF;
+        --soft: #F5FAFC;
+        --line: rgba(20, 61, 75, 0.14);
+        --shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        --radius: 8px;
+        --max-width: 1180px;
+    }
+
+    /* Grid de produtos */
+    .products-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin: 20px;
+    }
+
+    /* Card de cada produto */
+    .product-card {
+        background: white;
+        width: 220px;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Imagem do produto */
+    .product-image {
+        width: 100%;
+        max-width: 220px;
+        height: 220px;
+        object-fit: contain;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    /* Nome e preço */
+    .product-title-row {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .product-title-row h3 {
+        font-size: 1rem;
+        margin: 0;
+    }
+    .product-title-row .price {
+        font-weight: bold;
+        color: var(--navy);
+    }
+
+    /* Botões */
+    .product-actions {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    .btn {
+        background: var(--navy);
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    /* Painel de detalhes */
+    .details-panel {
+        display: none;
+        text-align: left;
+        margin-top: 10px;
+        font-size: 0.9rem;
+    }
+
+    /* Responsivo */
+    @media (max-width: 600px) {
+        .product-card {
+            width: 90%;
         }
+        .product-image {
+            height: auto;
+        }
+    }
+</style>
 
         * {
             box-sizing: border-box;

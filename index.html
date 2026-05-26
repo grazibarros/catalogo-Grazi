@@ -886,6 +886,894 @@
             </div>
           </article>
 
+         <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Catálogo Atomy com produtos de skincare e proteção solar disponíveis para compra pelo WhatsApp." />
+  <title>Catálogo Atomy | Grazi</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --dark: #262626;
+      --muted: #525252;
+      --navy: #143D4B;
+      --blue: #94CCDF;
+      --white: #FFFFFF;
+      --soft: #F5FAFC;
+      --line: rgba(20, 61, 75, 0.14);
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      --radius: 12px;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Manrope", Arial, sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 56px 0;
+    }
+
+    .section-header {
+      max-width: 720px;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 26px;
+      height: 2px;
+      background: var(--blue);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: "Playfair Display", Georgia, serif;
+      line-height: 1.12;
+      color: var(--dark);
+    }
+
+    h1 {
+      max-width: 620px;
+      font-size: clamp(38px, 5vw, 48px);
+    }
+
+    h2 {
+      font-size: clamp(30px, 4vw, 36px);
+    }
+
+    h3 {
+      font-size: 24px;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 11px 18px;
+      border: 0;
+      border-radius: 8px;
+      background: var(--blue);
+      color: var(--white);
+      font-weight: 700;
+      cursor: pointer;
+      transition: 180ms ease;
+    }
+
+    .btn:hover {
+      background: #83bfd2;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(20, 61, 75, 0.18);
+    }
+
+    .btn-dark {
+      background: var(--navy);
+    }
+
+    .btn-dark:hover {
+      background: #0f303b;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: var(--dark);
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .nav a:hover {
+      color: var(--navy);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 64px 0 52px;
+      background: linear-gradient(90deg, var(--white) 0%, var(--soft) 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      align-items: center;
+      gap: 44px;
+    }
+
+    .hero-copy p {
+      max-width: 590px;
+      margin-top: 18px;
+      font-size: 16px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .hero-note {
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .hero-media {
+      position: relative;
+      min-height: 420px;
+    }
+
+    .hero-card {
+      position: absolute;
+      inset: 16px 0 0 42px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 20px 44px rgba(20, 61, 75, 0.18);
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .floating-product {
+      position: absolute;
+      left: 0;
+      bottom: 8px;
+      width: min(220px, 44vw);
+      padding: 14px;
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .floating-product img {
+      aspect-ratio: 1;
+      object-fit: contain;
+      border-radius: 8px;
+      background: var(--soft);
+    }
+
+    .floating-product strong {
+      display: block;
+      margin-top: 10px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: contain;
+      padding: 18px;
+      background: var(--soft);
+    }
+
+    .product-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: 12px;
+      padding: 20px;
+    }
+
+    .product-title-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .product-title-row h3 {
+      font-size: 22px;
+    }
+
+    .price {
+      flex: 0 0 auto;
+      color: var(--navy);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .product-summary {
+      min-height: 76px;
+    }
+
+    .product-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .details-panel {
+      display: none;
+      margin-top: 4px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    .details-panel.is-open {
+      display: block;
+    }
+
+    .details-panel p + p {
+      margin-top: 12px;
+    }
+
+    .details-panel strong {
+      color: var(--dark);
+    }
+
+    .stats {
+      background: var(--blue);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .stat-card {
+      min-height: 145px;
+      padding: 26px;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .stat-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .difference {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .difference-grid {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.1fr);
+      align-items: center;
+      gap: 42px;
+    }
+
+    .difference-media {
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .difference-media img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+      padding: 22px;
+    }
+
+    .difference h2,
+    .difference p,
+    .difference .eyebrow {
+      color: var(--white);
+    }
+
+    .difference p {
+      opacity: 0.88;
+    }
+
+    .difference-list {
+      display: grid;
+      gap: 14px;
+      margin: 24px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .difference-list li {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .difference-list li::before {
+      content: "+";
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 20px;
+      border: 0;
+      background: transparent;
+      color: var(--dark);
+      font-weight: 800;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .faq-question span:last-child {
+      flex: 0 0 auto;
+      color: var(--navy);
+      font-size: 22px;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 20px 18px;
+    }
+
+    .faq-item.is-open .faq-answer {
+      display: block;
+    }
+
+    .testimonials {
+      background: var(--soft);
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .testimonial-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .testimonial-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      background: var(--blue);
+      color: var(--navy);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+    }
+
+    .stars {
+      color: #D89D27;
+      font-size: 15px;
+    }
+
+    .newsletter {
+      background: var(--blue);
+    }
+
+    .newsletter-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .newsletter-form input {
+      width: min(320px, 48vw);
+      min-height: 44px;
+      border: 1px solid rgba(20, 61, 75, 0.2);
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: var(--dark);
+    }
+
+    .site-footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 42px 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 1fr 0.8fr;
+      gap: 28px;
+    }
+
+    .site-footer h3,
+    .site-footer h4,
+    .site-footer p,
+    .site-footer a {
+      color: var(--white);
+    }
+
+    .site-footer h3 {
+      font-size: 28px;
+    }
+
+    .site-footer h4 {
+      margin: 0 0 12px;
+      font-size: 16px;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 8px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-links a {
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      font-weight: 800;
+    }
+
+    .footer-bottom {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 14px;
+      opacity: 0.82;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .difference-grid,
+      .newsletter-inner,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .products-grid,
+      .stats-grid,
+      .testimonial-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .newsletter-form {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .section {
+        padding: 42px 0;
+      }
+
+      .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px 0;
+      }
+
+      .nav {
+        width: 100%;
+        gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        font-size: 14px;
+      }
+
+      .hero {
+        padding-top: 40px;
+      }
+
+      .hero-grid,
+      .products-grid,
+      .stats-grid,
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-media {
+        min-height: 360px;
+      }
+
+      .hero-card {
+        inset: 0 0 46px 24px;
+      }
+
+      .floating-product {
+        width: 176px;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .newsletter-form input,
+      .btn {
+        width: 100%;
+      }
+
+      .product-title-row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#home" aria-label="Catálogo Atomy Grazi">Atomy Miracle</a>
+
+      <nav class="nav" aria-label="Menu principal">
+        <a href="#home">Home</a>
+        <a href="#about">Sobre Nós</a>
+        <a href="#products">Produtos</a>
+        <a href="#contact">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Catálogo Atomy</p>
+          <h1 id="hero-title">Descubra a Arte dos Cuidados com a Pele</h1>
+          <p>Produtos Atomy selecionados para cuidado diário da pele, hidratação, proteção solar e vitaminas. Confira detalhes, ingredientes e fale pelo WhatsApp para comprar.</p>
+
+          <div class="hero-actions">
+            <a class="btn" href="https://wa.me/5511972258721" target="_blank" rel="noopener">Comprar</a>
+            <a class="hero-note" href="#products">Ver catálogo completo</a>
+          </div>
+        </div>
+
+        <div class="hero-media" aria-label="Produtos Atomy em destaque">
+          <div class="hero-card">
+            <img src="https://image.atomy.com/KR/goods/001523/18dc0155-4f0d-4adb-afbe-df2abe7c7cec.jpg?w=1360&h=1360" alt="Hydra Balm Atomy">
+          </div>
+
+          <div class="floating-product">
+            <img src="https://image.atomy.com/KR/goods/001507/1d87be7f-b337-413b-9365-acd231fdb01b.jpg" alt="Reset Balm Atomy">
+            <strong>RESET BALM</strong>
+            <p>R$180,00</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="products" aria-labelledby="products-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Melhores Produtos</p>
+          <h2 id="products-title">Produtos destacados</h2>
+          <p>Conheça os cuidados Atomy disponíveis, compare descrições, veja ingredientes e fale direto pelo WhatsApp para comprar.</p>
+        </div>
+
+        <div class="products-grid">
+          <article class="product-card">
+            <img class="product-image" src="https://image.atomy.com/KR/goods/001507/1d87be7f-b337-413b-9365-acd231fdb01b.jpg" alt="Reset Balm">
+            <div class="product-body">
+              <div class="product-title-row">
+                <h3>RESET BALM</h3>
+                <span class="price">R$180,00</span>
+              </div>
+              <p class="product-summary">Bálsamo multifuncional para restaurar, hidratar e acalmar a pele em áreas ressecadas.</p>
+              <div class="product-actions">
+                <button class="btn btn-dark" type="button" data-details="reset-balm">Ver detalhes</button>
+                <a class="btn" href="https://wa.me/5511972258721" target="_blank" rel="noopener">Comprar</a>
+              </div>
+              <div class="details-panel" id="reset-balm">
+                <p><strong>Descrição:</strong> Reset Balm é um bálsamo multifuncional desenvolvido para restaurar, hidratar e acalmar a pele. Ideal para lábios, mãos, cutículas e regiões que precisam de cuidado extra no dia a dia.</p>
+                <p><strong>Ingredientes:</strong> Óleo de semente de girassol, óleo de semente de macadâmia, manteiga de karité, óleo de rícino, niacinamida, pantenol, ceramida NP, glicerina e óleo de semente de moringa.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img class="product-image" src="https://image.atomy.com/KR/goods/001523/18dc0155-4f0d-4adb-afbe-df2abe7c7cec.jpg?w=1360&h=1360" alt="Hydra Balm">
+            <div class="product-body">
+              <div class="product-title-row">
+                <h3>HYDRA BALM</h3>
+                <span class="price">R$180,00</span>
+              </div>
+              <p class="product-summary">Bálsamo hidratante para nutrir profundamente e manter a pele protegida ao longo do dia.</p>
+              <div class="product-actions">
+                <button class="btn btn-dark" type="button" data-details="hydra-balm">Ver detalhes</button>
+                <a class="btn" href="https://wa.me/5511972258721" target="_blank" rel="noopener">Comprar</a>
+              </div>
+              <div class="details-panel" id="hydra-balm">
+                <p><strong>Descrição:</strong> Hydra Balm é um bálsamo hidratante desenvolvido para nutrir profundamente e manter a pele protegida, deixando a pele mais macia e luminosa.</p>
+                <p><strong>Ingredientes:</strong> Água de Lótus Azul, malaquita, colágeno hidrolisado, Xanthy Lift, Absolute Selective Code e Collazome.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img class="product-image" src="https://image.atomy.com/KR/goods/000286/836bbc60-8659-4ea0-a465-1b879afcc3e2.jpg?w=1360&h=1360" alt="Sun Stick">
+            <div class="product-body">
+              <div class="product-title-row">
+                <h3>SUN STICK</h3>
+                <span class="price">R$120,00</span>
+              </div>
+              <p class="product-summary">Protetor solar em bastão com SPF50+ PA++++, toque seco e reaplicação prática.</p>
+              <div class="product-actions">
+                <button class="btn btn-dark" type="button" data-details="sun-stick">Ver detalhes</button>
+                <a class="btn" href="https://wa.me/5511972258721" target="_blank" rel="noopener">Comprar</a>
+              </div>
+              <div class="details-panel" id="sun-stick">
+                <p><strong>Descrição:</strong> Protetor solar em bastão prático e fácil de reaplicar ao longo do dia. Possui acabamento semi-transparente e toque seco.</p>
+                <p><strong>Ingredientes:</strong> Óleo de semente de girassol, óleo de laranja, óleo da semente de Echium plantagineum, extrato da folha de caqui, glicerina e água purificada.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img class="product-image" src="https://image.atomy.com/KR/goods/000780/c7f13ea4-b412-4197-925d-50a49f55372f.jpg?w=1360&h=1360" alt="Derma Calming Sun Stick">
+            <div class="product-body">
+              <div class="product-title-row">
+                <h3>DERMA CALMING SUN STICK</h3>
+                <span class="price">R$140,00</span>
+              </div>
+              <p class="product-summary">Protetor solar em bastão para peles sensíveis, com calamina rosa e acabamento leve.</p>
+              <div class="product-actions">
+                <button class="btn btn-dark" type="button" data-details="derma-calming">Ver detalhes</button>
+                <a class="btn" href="https://wa.me/5511972258721" target="_blank" rel="noopener">Comprar</a>
+              </div>
+              <div class="details-panel" id="derma-calming">
+                <p><strong>Descrição:</strong> Protetor solar em bastão para peles sensíveis. Protege contra raios UVA e UVB, hidrata e ajuda a acalmar a pele.</p>
+                <p><strong>Ingredientes:</strong> Calamina, extrato de aloe vera, óleo de laranja, óleo de lichia, água de cipreste e extrato de malva-rosa.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img class="product-image" src="https://image.atomy.com/KR/goods/000276/b56dee29-488f-4781-948b-8771c8e8020a.jpg?w=1360&h=1360" alt="Essence Sun">
+            <div class="product-body">
+              <div class="product-title-row">
+                <h3>ESSENCE SUN</h3>
+                <span class="price">R$160,00</span>
+              </div>
+              <p class="product-summary">Protetor solar em essência com SPF50+/PA++++, hidratação e acabamento natural.</p>
+              <div class="product-actions">
+                <button class="btn btn-dark" type="button" data-details="essence-sun">Ver detalhes</button>
+                <a class="btn" href="https://wa.me/5511972258721" target="_blank" rel="noopener">Comprar</a>
+              </div>
+              <div class="details-panel" id="essence-sun">
+                <p><strong>Descrição:</strong> Protetor solar em essência que une proteção solar, clareamento e cuidado anti-idade em um só produto.</p>
+                <p><strong>Ingredientes:</strong> Água purificada, niacinamida, extrato de pitaya, extrato de cúrcuma, extrato de chia, centella asiática, chá verde, pantenol e ceramida NP.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img class="product-image" src="https://diplomatic-green-ghhqwvfdyq.edgeone.app/bc68ace9-0d3b-4b3a-beac-406678d38657%20(1).png" alt="Sunscreen">
+            <div class="product-body">
+              <div class="product-title-row">
+                <h3>SUNSCREEN</h3>
+                <span class="price">R$120,00</span>
+              </div>
+              <p class="product-summary">Protetor solar de alta proteção para todos os tipos de pele, nas versões White e Beige.</p>
+              <div class="product-actions">
+                <button class="btn btn-dark" type="button" data-details="sunscreen">Ver detalhes</button>
+                <a class="btn" href="https://wa.me/5511972258721" target="_blank" rel="noopener">Comprar</a>
+              </div>
+              <div class="details-panel" id="sunscreen">
+                <p><strong>Descrição:</strong> Protetor solar de alta proteção para todos os tipos de pele, com textura leve e acabamento natural.</p>
+                <p><strong>Ingredientes:</strong> Água purificada, óxido de zinco, dióxido de titânio, glicerina, centella asiática, chá verde, melissa, extrato de borragem e vitamina E.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img class="product-image" src="https://image.atomy.com/KR/goods/001531/org/605/250321000038605.jpg?w=1360&h=1360" alt="Tone-Up Essence Sun">
+            <div class="product-body">
+              <div class="product-title-row">
+                <h3>TONE-UP ESSENCE SUN</h3>
+                <span class="price">R$160,00</span>
+              </div>
+              <p class="product-summary">Protetor solar em essência com proteção contra raios UVA, UVB e luz azul.</p>
+              <div class="product-actions">
+                <button class="btn btn-dark" type="button" data-details="tone-up">Ver detalhes</button>
+                <a class="btn" href="https://wa.me/5511972258721" target="_blank" rel="noopener">Comprar</a>
+              </div>
+              <div class="details-panel" id="tone-up">
+                <p><strong>Descrição:</strong> Protetor solar em essência com efeito tonalizante, proteção solar e acabamento hidratado.</p>
+                <p><strong>Ingredientes:</strong> Fórmula com ativos para iluminar, acalmar e cuidar da pele, oferecendo proteção e efeito tonalizante.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img class="product-image" src="https://image.atomy.com/KR/goods/000350/c43053e5-e5f3-421f-bffd-7bb594e100a7.jpg?w=1360&h=1360" alt="Evening Care Set">
+            <div class="product-body">
+              <div class="product-title-row">
+                <h3>EVENING CARE SET</h3>
+                <span class="price">R$380,00</span>
+              </div>
+              <p class="product-summary">Kit de cuidados para limpar, esfoliar, hidratar e revitalizar a pele.</p>
+              <div class="product-actions">
+                <button class="btn btn-dark" type="button" data-details="evening-care">Ver detalhes</button>
+                <a class="btn" href="https://wa.me/5511972258721" target="_blank" rel="noopener">Comprar</a>
+              </div>
+              <div class="details-panel" id="evening-care">
+                <p><strong>Descrição:</strong> Kit completo de quatro etapas para manter a pele limpa, suave e radiante diariamente.</p>
+                <p><strong>Ingredientes:</strong> Extrato de ginseng, ginkgo, chá verde, cenoura, beta-glucano, extrato de toranja, centella asiática, pó de ametista e pó de jade.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img class="product-image" src="https://image.atomy.com/KR/goods/001526/2392927a-88b7-4f85-8e09-edee275cbd69.jpg" alt="Snow Dark Spot Corrector">
+            <div class="product-body">
+              <div class="product-title-row">
+                <h3>SNOW DARK SPOT CORRECTOR</h3>
+                <span class="price">R$180,00</span>
+              </div>
+              <p class="product-summary">Corretor de manchas para uniformizar e iluminar a pele.</p>
+              <div class="product-actions">
+                <button class="btn btn-dark" type="button" data-details="snow-dark-spot">Ver detalhes</button>
+                <a class="btn" href="https://wa.me/5511972258721" target="_blank" rel="noopener">Comprar</a>
+              </div>
+              <div class="details-panel" id="snow-dark-spot">
+                <p><strong>Descrição:</strong> Corretor de manchas que auxilia na uniformização do tom da pele, deixando aparência mais luminosa.</p>
+                <p><strong>Ingredientes:</strong> Pitaya, extrato de flor de peônia, glicerina, niacinamida, extrato de kelp, tomate, alcaçuz, jojoba, chá verde, pantenol e ceramida NP.</p>
+              </div>
+            </div>
+          </article>
+
           <article class="product-card">
            src="<img class="product-image" src="https://image.atomy.com/KR/goods/000207/org/605/000207-01.webp?w=1360&h=1360" alt="Absolute CellActive Skincare">
             <div class="product-body">
@@ -937,6 +1825,244 @@
                 <p><strong>Ingredientes:</strong> Ácido hialurônico, betaina, 6 tipos de ceramidas, 13 peptídeos, colágeno hidrolisado, ouro (Gold 1ppm), extrato de trufa branca, complexo de flores brancas (lotus, jasmine, freesia, iris, edelweiss, Madonna lily, daffodil, damask rose)</p>
         </div>
       </div>
+    </section>
+
+    <section class="section stats" id="about" aria-labelledby="stats-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Experiência</p>
+          <h2 id="stats-title">Cuidado, beleza e praticidade</h2>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3>15+ anos</h3>
+            <p>Curadoria com foco em rotina de beleza, hidratação e proteção.</p>
+          </div>
+
+          <div class="stat-card">
+            <h3>Produtos originais</h3>
+            <p>Catálogo organizado para destacar produtos originais de skincare.</p>
+          </div>
+
+          <div class="stat-card">
+            <h3>Atendimento direto</h3>
+            <p>Contato pelo WhatsApp para tirar dúvidas e comprar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section difference" aria-labelledby="difference-title">
+      <div class="container difference-grid">
+        <div class="difference-media">
+          <img src="https://image.atomy.com/KR/goods/000276/b56dee29-488f-4781-948b-8771c8e8020a.jpg?w=1360&h=1360" alt="Atomy Essence Sun">
+        </div>
+
+        <div>
+          <p class="eyebrow">Diferenciais</p>
+          <h2 id="difference-title">Por que somos diferentes</h2>
+          <p>O catálogo reúne descrições claras, ingredientes e contato direto para compra, sem etapas complicadas.</p>
+
+          <ul class="difference-list">
+            <li>Produtos com foco em hidratação, cuidado da pele, proteção solar e cuidados pessoais.</li>
+            <li>Detalhes de cada item acessíveis no próprio card.</li>
+            <li>Compra rápida pelo WhatsApp.</li>
+          </ul>
+
+          <a class="btn" href="https://wa.me/5511972258721" target="_blank" rel="noopener">Comprar agora</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Perguntas</p>
+          <h2 id="faq-title">Perguntas frequentes</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Como faço para comprar?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Clique em "Comprar" para abrir o WhatsApp e falar diretamente pelo número informado no catálogo.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Posso tirar dúvidas antes de comprar?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Sim. Pelo WhatsApp você pode confirmar disponibilidade, forma de entrega e a melhor opção para sua rotina de cuidado.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Quais tipos de produto encontro no catálogo?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>O catálogo reúne hidratantes, protetores solares, produtos para limpeza da pele e cuidados pessoais.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section testimonials" aria-labelledby="testimonials-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Clientes</p>
+          <h2 id="testimonials-title">Testemunhos de clientes</h2>
+        </div>
+
+        <div class="testimonial-grid">
+          <article class="testimonial-card">
+            <div class="testimonial-head">
+              <span class="avatar">M</span>
+              <div>
+                <strong>Marina</strong>
+                <div class="stars" aria-label="5 estrelas">★★★★★</div>
+              </div>
+            </div>
+            <p>Gostei da praticidade para ver os produtos e falar direto no WhatsApp.</p>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="testimonial-head">
+              <span class="avatar">C</span>
+              <div>
+                <strong>Camila</strong>
+                <div class="stars" aria-label="5 estrelas">★★★★★</div>
+              </div>
+            </div>
+            <p>As descrições ajudam bastante a comparar os protetores solares.</p>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="testimonial-head">
+              <span class="avatar">A</span>
+              <div>
+                <strong>Ana</strong>
+                <div class="stars" aria-label="5 estrelas">★★★★★</div>
+              </div>
+            </div>
+            <p>Catálogo simples, bonito e fácil de navegar pelo celular.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section newsletter" aria-labelledby="newsletter-title">
+      <div class="container newsletter-inner">
+        <div>
+          <p class="eyebrow">Newsletter</p>
+          <h2 id="newsletter-title">Receba novidades do catálogo</h2>
+          <p>Deixe seu e-mail para acompanhar novos produtos e atualizações.</p>
+        </div>
+
+        <form class="newsletter-form" id="newsletter-form">
+          <input type="email" name="email" placeholder="seu@email.com" aria-label="E-mail" required>
+          <button class="btn btn-dark" type="submit">Inscreva-se</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>Atomy Miracle</h3>
+          <p>Catálogo Atomy com hidratantes, protetores solares, produtos para limpeza da pele e cuidados pessoais.</p>
+        </div>
+
+        <div>
+          <h4>Links rápidos</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Sobre Nós</a></li>
+            <li><a href="#products">Produtos</a></li>
+            <li><a href="#contact">Contato</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contato</h4>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/5511972258721" target="_blank" rel="noopener">WhatsApp: +55 11 97225-8721</a></li>
+            <li>Atendimento para dúvidas e pedidos.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Mídias sociais</h4>
+          <div class="social-links" aria-label="Links sociais">
+            <a href="https://wa.me/5511972258721" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+
+            <a href="https://www.instagram.com/atomymiraclecenter?igsh=MWVydmh3MnY1Z2Fwdw%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://www.tiktok.com/@mcatomy?_r=1&_t=ZS-96ezas1DoST" target="_blank" rel="noopener" aria-label="TikTok">
+              <i class="fab fa-tiktok"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Atomy Grazi. Catálogo em HTML, CSS e JavaScript.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll("[data-details]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var id = button.getAttribute("data-details");
+        var panel = document.getElementById(id);
+
+        if (!panel) return;
+
+        var isOpen = panel.classList.toggle("is-open");
+        button.textContent = isOpen ? "Ocultar detalhes" : "Ver detalhes";
+      });
+    });
+
+    document.querySelectorAll(".faq-question").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var item = button.closest(".faq-item");
+        var isOpen = item.classList.toggle("is-open");
+
+        button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        button.querySelector("span:last-child").textContent = isOpen ? "-" : "+";
+      });
+    });
+
+    document.getElementById("newsletter-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      var email = event.target.email.value.trim();
+
+      if (!email) return;
+
+      var message = encodeURIComponent("Olá, quero receber novidades do catálogo Atomy. Meu e-mail é: " + email);
+
+      window.open("https://wa.me/5511972258721?text=" + message, "_blank", "noopener");
+    });
+  </script>
+</body>
+</html>
     </section>
 
     <section class="section stats" id="about" aria-labelledby="stats-title">

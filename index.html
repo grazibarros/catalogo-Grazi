@@ -259,10 +259,20 @@
     }
 
     .products-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.category-title {
+  grid-column: 1 / -1;
+  margin: 22px 0 4px;
+  font-size: 28px;
+  color: var(--navy);
+  font-family: "Playfair Display", Georgia, serif;
+  border-bottom: 2px solid var(--blue);
+  padding-bottom: 8px;
+}
 
     .product-card {
       display: flex;
@@ -715,6 +725,9 @@
         </div>
 
         <div class="products-grid">
+          
+          <h3 class="category-title">Rejuvenescimento</h3>
+          
           <article class="product-card">
             <img class="product-image" src="https://image.atomy.com/KR/goods/001507/1d87be7f-b337-413b-9365-acd231fdb01b.jpg" alt="Reset Balm">
             <div class="product-body">

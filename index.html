@@ -1137,33 +1137,32 @@ Peel-Off Mask: Extrato de Centella asiatica, pó de ametista, pó de jade.</p>
         </div>
     </footer>
 
-    <script>
-        document.querySelectorAll("[data-details]").forEach(function (button) {
-            button.addEventListener("click", function () {
-                var panel = document.getElementById(button.dataset.details);
-                var isOpen = panel.classList.toggle("is-open");
-                button.textContent = isOpen ? "Ocultar detalhes" : "Ver detalhes";
-            });
-        });
+   <script>
+document.querySelectorAll("[data-details]").forEach(function (button) {
+    button.addEventListener("click", function () {
+        // Seleciona o painel usando querySelector com CSS.escape
+        var panel = document.querySelector("#" + CSS.escape(button.dataset.details));
+        var isOpen = panel.classList.toggle("is-open");
+        button.textContent = isOpen ? "Ocultar detalhes" : "Ver detalhes";
+    });
+});
 
-        document.querySelectorAll(".faq-question").forEach(function (button) {
-            button.addEventListener("click", function () {
-                var item = button.closest(".faq-item");
-                var isOpen = item.classList.toggle("is-open");
-                button.setAttribute("aria-expanded", isOpen ? "true" : "false");
-                button.querySelector("span:last-child").textContent = isOpen ? "-" : "+";
-            });
-        });
+document.querySelectorAll(".faq-question").forEach(function (button) {
+    button.addEventListener("click", function () {
+        var item = button.closest(".faq-item");
+        var isOpen = item.classList.toggle("is-open");
+        button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        button.querySelector("span:last-child").textContent = isOpen ? "-" : "+";
+    });
+});
 
-        document.getElementById("newsletter-form").addEventListener("submit", function (event) {
-            event.preventDefault();
-            var email = event.target.email.value.trim();
-            if (!email) {
-                return;
-            }
-            var message = encodeURIComponent("Olá, quero receber novidades do catálogo Atomy. Meu e-mail é: " + email);
-            window.open("https://wa.me/5511972258721?text=" + message, "_blank", "noopener");
-        });
-    </script>
+document.getElementById("newsletter-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    var email = event.target.email.value.trim();
+    if (!email) return;
+    var message = encodeURIComponent("Olá, quero receber novidades do catálogo Atomy. Meu e-mail é: " + email);
+    window.open("https://wa.me/5511972258721?text=" + message, "_blank", "noopener");
+});
+</script>
 </body>
 </html>

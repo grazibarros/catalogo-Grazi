@@ -1277,7 +1277,7 @@
       });
     });
 
-    document.getElementById("newsletter-form").addEventListener("submit", function (event) {
+      document.getElementById("newsletter-form").addEventListener("submit", function (event) {
       event.preventDefault();
 
       var email = event.target.email.value.trim();
@@ -1287,6 +1287,28 @@
       var message = encodeURIComponent("Olá, quero receber novidades do catálogo Atomy. Meu e-mail é: " + email);
 
       window.open("https://wa.me/5511972258721?text=" + message, "_blank", "noopener");
+    });
+
+    document.querySelectorAll(".category-btn").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var category = button.getAttribute("data-category");
+
+        document.querySelectorAll(".category-btn").forEach(function (btn) {
+          btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        document.querySelectorAll(".product-card").forEach(function (card) {
+          var productCategory = card.getAttribute("data-category");
+
+          if (category === "todos" || productCategory === category) {
+            card.style.display = "flex";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
     });
   </script>
 </body>

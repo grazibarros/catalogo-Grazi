@@ -273,6 +273,28 @@
   border-bottom: 2px solid var(--blue);
   padding-bottom: 8px;
 }
+    .category-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0 28px;
+}
+
+.category-btn {
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--navy);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.category-btn.active,
+.category-btn:hover {
+  background: var(--navy);
+  color: var(--white);
+}
 
     .product-card {
       display: flex;
@@ -676,6 +698,7 @@
 
 <body>
   <header class="site-header">
+
     <div class="container header-inner">
       <a class="logo" href="#home" aria-label="Catálogo Atomy Grazi">Atomy Miracle</a>
 
@@ -723,10 +746,16 @@
           <h2 id="products-title">Produtos destacados</h2>
           <p>Conheça os cuidados Atomy disponíveis, compare descrições, veja ingredientes e fale direto pelo WhatsApp para comprar.</p>
         </div>
-
+<div class="category-menu">
+  <button class="category-btn active" type="button" data-category="todos">Todos</button>
+  <button class="category-btn" type="button" data-category="rejuvenescimento">Rejuvenescimento</button>
+  <button class="category-btn" type="button" data-category="protetores">Protetores solares</button>
+  <button class="category-btn" type="button" data-category="maquiagem">Maquiagem</button>
+  <button class="category-btn" type="button" data-category="limpeza">Limpeza</button>
+  <button class="category-btn" type="button" data-category="hidratacao">Hidratação</button>
+</div>
         <div class="products-grid">
           
-          <h3 class="category-title">Rejuvenescimento</h3>
           
           <article class="product-card">
             <img class="product-image" src="https://image.atomy.com/KR/goods/001507/1d87be7f-b337-413b-9365-acd231fdb01b.jpg" alt="Reset Balm">
@@ -747,7 +776,7 @@
             </div>
           </article>
 
-          <article class="product-card">
+          <article class="product-card" data-category="rejuvenescimento">
             <img class="product-image" src="https://image.atomy.com/KR/goods/001523/18dc0155-4f0d-4adb-afbe-df2abe7c7cec.jpg?w=1360&h=1360" alt="Hydra Balm">
             <div class="product-body">
               <div class="product-title-row">
@@ -766,7 +795,7 @@
             </div>
           </article>
 
-          <article class="product-card">
+         <article class="product-card" data-category="protetores">
             <img class="product-image" src="https://image.atomy.com/KR/goods/000286/836bbc60-8659-4ea0-a465-1b879afcc3e2.jpg?w=1360&h=1360" alt="Sun Stick">
             <div class="product-body">
               <div class="product-title-row">
@@ -785,7 +814,7 @@
             </div>
           </article>
 
-          <article class="product-card">
+         <article class="product-card" data-category="protetores">
             <img class="product-image" src="https://image.atomy.com/KR/goods/000780/c7f13ea4-b412-4197-925d-50a49f55372f.jpg?w=1360&h=1360" alt="Derma Calming Sun Stick">
             <div class="product-body">
               <div class="product-title-row">
@@ -804,7 +833,7 @@
             </div>
           </article>
 
-          <article class="product-card">
+          <article class="product-card" data-category="protetores">
             <img class="product-image" src="https://image.atomy.com/KR/goods/000276/b56dee29-488f-4781-948b-8771c8e8020a.jpg?w=1360&h=1360" alt="Essence Sun">
             <div class="product-body">
               <div class="product-title-row">
@@ -823,7 +852,7 @@
             </div>
           </article>
 
-          <article class="product-card">
+          <article class="product-card" data-category="protetores">
             <img class="product-image" src="https://publish-static.atomy.com/images/products/kr/000280/000280-01.webp" alt="Sunscreen">
             <div class="product-body">
               <div class="product-title-row">
@@ -898,7 +927,7 @@
               </div>
             </div>
           </article>
-          <article class="product-card">
+          <article class="product-card" data-category="rejuvenescimento">
   <img class="product-image" src="https://publish-static.atomy.com/images/products/kr/000207/000207-01.webp" alt="Absolute CellActive Skincare">
   <div class="product-body">
     <div class="product-title-row">
@@ -917,7 +946,7 @@
   </div>
 </article>
 
-<article class="product-card">
+<article class="product-card" data-category="maquiagem">
   <img class="product-image" src="https://image.atomy.com/KR/goods/000260/db102048-e508-4d0e-b197-dfa2948d8437.png?w=1360&h=1360" alt="BB Cream">
   <div class="product-body">
     <div class="product-title-row">
@@ -936,7 +965,7 @@
   </div>
 </article>
 
-<article class="product-card">
+<article class="product-card" data-category="maquiagem">
   <img class="product-image" src="https://image.atomy.com/KR/goods/004770/0b551fe2-43aa-4ab0-bfd8-32f5e32ee257.jpg?w=1360&h=1360" alt="Adelica The New Gold Collagen Ampoule Cushion">
   <div class="product-body">
     <div class="product-title-row">
@@ -955,7 +984,7 @@
   </div>
   </article>
           
-  <article class="product-card">
+  <article class="product-card" data-category="maquiagem">
   <img class="product-image" src="https://image.atomy.com/KR/goods/000400/b2f33312-ea97-4e80-a103-9ec2bca5035d.jpg?w=1360&h=1360" alt="LIP GLOW">
 
   <div class="product-body">
@@ -978,7 +1007,7 @@
   </div>
 </article>
 
-<article class="product-card">
+<article class="product-card" data-category="maquiagem">
   <img class="product-image" src="https://image.atomy.com/KR/goods/004744/e8b78537-4d36-4981-9047-4a870dc77af0.jpg?w=1360&h=1360" alt="LOOSE SETTING POWDER">
 
   <div class="product-body">
